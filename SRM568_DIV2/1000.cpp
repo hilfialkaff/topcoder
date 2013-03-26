@@ -11,7 +11,7 @@ using namespace std;
 
 class ShuffleSort {
 public:
-    double shuffle(vector <int> cards)                                                                                                                                                                                            
+    double shuffle(vector <int> cards)
     {
         int min = 51;
         int min_occur = 0;
@@ -21,7 +21,8 @@ public:
 		if (sz == 0) {
 			return 1;
 		}
-		
+
+        // Multiple min values possible.
         FOR(i, 0, sz) {
             if (cards[i] < min) {
                 index = i;
@@ -33,6 +34,6 @@ public:
         }
 
         cards.erase(cards.begin() + index);
-        return ((sz / min_occur) * shuffle(cards));
+        return ((sz / min_occur) * shuffle(cards)); // Expected value * (begins shuffling process again).
     }
 };
